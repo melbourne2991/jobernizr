@@ -2,6 +2,7 @@
 
 var jobernizeApp = angular.module('jobernizeApp',[
 	'ngRoute',
+	'firebase',
 
 	'jobernizeControllers',
     'jobernizeFilters',

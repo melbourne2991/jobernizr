@@ -1,16 +1,72 @@
 <div data-ng-controller="shortlistController">
-	<ul>
-		<li data-ng-repeat="job in jobs">
-			<div>{{ job.role }}</div><div>{{ job.salary }}</div><div>{{ job.company }}</div>
-		</li>
-	</ul>
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Your Shortlisted Jobs</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns">
+			<table>
+				<thead>
+					<tr>
+						<th>Role</th>
+						<th>Salary</th>
+						<th>Company</th>
+						<th>Link</th>
+						<th>Resume</th>
+						<th>Cover Letter</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="job in jobs">
+						<td>{{ job.role }}</td>
+						<td>{{ job.salary }}</td>
+						<td>{{ job.company }}</td>
+						<td><a href="{{ job.url }}">{{ job.url }}</a></td>
+						<td><a href="#">Add Resume</a></td>
+						<td><a href="#">Add or Write Cover Letter</a></td>
+					</tr>
+				</tbody>
+			<table>
+		</div>
+	</div>
 
 	<form name="newJobForm">
-		<input type="text" ng-model="newJobRole">
-		<input type="text" ng-model="newJobSalary">
-		<input type="text" ng-model="newJobCompany">
-		<input type="text" ng-model="newJobUrl">
-		<button ng-click="addJob()">Submit</button>
+		<div class="row">
+			<div class="small-12 columns">
+				<h3>Add a job to your shortlist...</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-3 columns">
+				<label>Role</label>
+				<input type="text" ng-model="newJobRole">
+			</div>
+
+			<div class="small-3 columns">
+				<label>Salary</label>
+				<input type="text" ng-model="newJobSalary">
+			</div>
+
+			<div class="small-3 columns">
+				<label>Company</label>
+				<input type="text" ng-model="newJobCompany">
+			</div>
+
+			<div class="small-3 columns">
+				<label>Url</label>
+				<input type="text" ng-model="newJobUrl">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="small-12 columns">
+				<button ng-click="addJob()">Submit</button>
+			</div>
+		</div>
 	</form>
 </div>
 

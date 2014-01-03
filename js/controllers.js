@@ -1,23 +1,29 @@
 
 var jobernizeControllers = angular.module('jobernizeControllers', []);
 
-jobernizeControllers.controller('shortlistController', ['$scope', function($scope) {
+jobernizeControllers.controller('shortlistController', ['$scope' , '$firebase', function($scope, $firebase) {
 
-	$scope.jobs = [
+	var ref = new Firebase("https://podfuse.firebaseio.com/");
 
-	{role: 'Awesomeness Operator', salary: 55000, company: 'Tek Co'},
-	{role: 'Silliness Scooper', salary: 32000, company: 'Tek Co'}, 
-	{role: 'Maniac Therapist', salary: 92000, company: 'BarkingRad Media'}
+	$scope.jobs = $firebase(ref)
 
-	];
+	// $scope.jobs = [
+
+	// {role: 'Awesomeness Operator', salary: 55000, company: 'Tek Co', url: 'http://www.tekco.com/2o3343ok'},
+	// {role: 'Silliness Scooper', salary: 32000, company: 'Tek Co', url: 'http://www.tekco.com/2o3343ok'}, 
+	// {role: 'Maniac Therapist', salary: 92000, company: 'BarkingRad Media', url: 'http://www.tekco.com/2o3343ok'}
+
+
+	// ];
 
 	$scope.addJob = function () {
 
-		$scope.jobs.push(
+		$scope.jobs.$add(
 			{
 				role: $scope.newJobRole,
 				salary: $scope.newJobSalary,
-				company: $scope.newJobCompany 
+				company: $scope.newJobCompany,
+				url: $scope.newJobUrl 
 			}
 		);
 

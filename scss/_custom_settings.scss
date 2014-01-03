@@ -1,0 +1,28 @@
+
+//Global
+$font-on-primary: #fff;
+
+//Menus
+$menu-padding: 20px;
+
+//Lists
+@mixin stripped-list($type) {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	@if $type == menu {
+		li {
+			padding: $menu-padding;
+			float: left;
+		}
+
+		li:first-child {
+			padding-left: 0;
+		}
+	}
+}
+
+//Tabled Content
+$tabled-content-color: #FFF;
+
