@@ -1,0 +1,16 @@
+<div data-ng-controller="shortlistController">
+	<ul>
+		<li data-ng-repeat="job in jobs">
+			<div>{{ job.role }}</div><div>{{ job.salary }}</div><div>{{ job.company }}</div>
+		</li>
+	</ul>
+
+	<form name="newJobForm">
+		<input type="text" ng-model="newJobRole">
+		<input type="text" ng-model="newJobSalary">
+		<input type="text" ng-model="newJobCompany">
+		<input type="text" ng-model="newJobUrl">
+		<button ng-click="addJob()">Submit</button>
+	</form>
+</div>
+
