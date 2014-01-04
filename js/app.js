@@ -2,11 +2,11 @@
 
 var jobernizeApp = angular.module('jobernizeApp',[
 	'ngRoute',
-	'firebase',
 
 	'jobernizeControllers',
     'jobernizeFilters',
-    'jobernizeServices'
+    'jobernizeServices',
+	'jobernizeDirectives'
 ]);
 
 jobernizeApp.config(['$routeProvider', function($routeProvider) {

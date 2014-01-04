@@ -1,0 +1,33 @@
+<div data-ng-controller="resumesController">
+
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Your Resumes</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns">
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Category</th>
+						<th>Date Added</th>
+						<th>View/Edit Resume</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="resume in resumes">
+						<td>{{ resume.name }}</td>
+						<td>{{ resume.category }}</td>
+						<td>{{ resume.date_added }}</td>
+						<td><button view-large-content content="resume.content">View Resume</button></td>
+					</tr>
+				</tbody>
+			<table>
+		</div>
+	</div>
+
+</div>
+
