@@ -1,11 +1,12 @@
 
-var jobernizeControllers = angular.module('jobernizeControllers', []);
+var jobernizeControllers = angular.module('jobernizeControllers', ['jobernizeServices', 'angularFileUpload']);
 
-jobernizeControllers.controller('shortlistController', ['$scope', function($scope) {
+jobernizeControllers.controller('shortlistController', ['$scope', 'Resumes', function($scope, Resumes) {
 
 	// var ref = new Firebase("https://podfuse.firebaseio.com/");
 
 	// $scope.jobs = $firebase(ref)
+	$scope.resumes = Resumes;
 
 	$scope.jobs = [
 
@@ -15,6 +16,8 @@ jobernizeControllers.controller('shortlistController', ['$scope', function($scop
 
 
 	];
+
+	console.log($scope);
 
 	$scope.addJob = function () {
 
@@ -33,26 +36,26 @@ jobernizeControllers.controller('shortlistController', ['$scope', function($scop
 
 }]);
 
-jobernizeControllers.controller('resumesController', ['$scope', function($scope) {
+jobernizeControllers.controller('resumesController', ['$scope', '$fileUploader', 'Resumes', function($scope, $fileUploader, Resumes) {
 
-	$scope.resumes = [
+	$scope.resumes = Resumes;
 
-		{
-			name: '2013 Updated Front-End',
-			category: 'Front-End', 
-			date_added: '20.12.13', 
-			link_to_file: '',
-			content: 'Howdy'
-		},
+	var uploader = $scope.uploader = $fileUploader.create({
+		scope: $scope,
+		url: 'uploaded'
+	});
 
-		{
-			name: '2013 Updated Back-End',
-			category: 'Back-End', 
-			date_added: '20.12.13', 
-			link_to_file: '',
-			content: ''
-		}
+	console.log($scope.uploader)
 
-	];
+
+	// $scope.resumes.push(
+	// 		{
+	// 			name: '2013 Updated Front-End',
+	// 			category: 'Front-End', 
+	// 			date_added: '20.12.13', 
+	// 			link_to_file: '',
+	// 			content: 'Howdy'
+	// 		}
+	// );
 
 }]);

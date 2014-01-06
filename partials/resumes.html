@@ -22,12 +22,40 @@
 						<td>{{ resume.name }}</td>
 						<td>{{ resume.category }}</td>
 						<td>{{ resume.date_added }}</td>
-						<td><button view-large-content content="resume.content">View Resume</button></td>
+						<td><button index="{{ $index }}" view-large-content data-ng-model="resume.content">View Resume</button></td>
 					</tr>
 				</tbody>
 			<table>
 		</div>
 	</div>
+
+	<input ng-file-select type="file" multiple>
+					<div><strong class="ng-binding"></strong></td>
+                        <td ng-show="uploader.isHTML5" nowrap="" class="ng-binding"></td>
+                        <td ng-show="uploader.isHTML5">
+                            <div class="progress" style="margin-bottom: 0;">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <span ng-show="item.isSuccess" style="display: none;"><i class="glyphicon glyphicon-ok"></i></span>
+                            <span ng-show="item.isCancel" style="display: none;"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                            <span ng-show="item.isError" style="display: none;"><i class="glyphicon glyphicon-remove"></i></span>
+                        </td>
+                        <td nowrap="">
+                            <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                <span class="glyphicon glyphicon-upload"></span> Upload
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading" disabled="disabled">
+                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                <span class="glyphicon glyphicon-trash"></span> Remove
+                            </button>
+                        </div>
+        </div>
+
+	<button data-ng-click="test()"></button>
 
 </div>
 
