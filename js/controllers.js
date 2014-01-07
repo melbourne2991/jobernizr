@@ -42,7 +42,7 @@ jobernizeControllers.controller('resumesController', ['$scope', '$fileUploader',
 
 	var uploader = $scope.uploader = $fileUploader.create({
 		scope: $scope,
-		url: 'uploaded'
+		url: 'uploaded/test.php'
 	});
 
 	console.log($scope.uploader)
