@@ -1,35 +1,19 @@
-	<?php
+<?php
 
-	if ( !empty( $_FILES ) ) {
-	    
-	    function varDumpToString ($var)
-		{
-		    ob_start();
-		    var_dump($var);
-		    $result = ob_get_clean();
-		    error_log($result);
-		}
+if ( !empty( $_FILES ) ) {
+    
+    $tempPath = $_FILES[ 'file' ][ 'tmp_name' ];
+    $uploadPath = dirname( __FILE__ ) . '/' . $_FILES[ 'file' ][ 'name' ];
 
-		varDumpToString($_FILES);
+    move_uploaded_file( $tempPath, $uploadPath );
 
-	    $tempPath = $_FILES[ 'file' ][ 'tmp_name' ];
-	    $uploadPath = dirname( __FILE__ ) . '/' . $_FILES[ 'file' ][ 'name' ];
+    $answer = array( 'answer' => 'File transfer completed' );
+    $json = json_encode( $answer );
 
-	    error_log($tempPath);
+    echo $json;
 
-	    move_uploaded_file( $tempPath, $uploadPath );
+} else {
+    echo 'No files';
+}
 
-	    $answer = array( 'answer' => 'File transfer completed' );
-	    $json = json_encode( $answer );
-
-	    echo $json;
-
-	} else {
-
-	    echo 'No files';
-
-	}
-
-	phpinfo();
-
-	?>
+?>
